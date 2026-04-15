@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Доступ</title>
+
+<style>
+body {
+    font-family: Arial;
+    background:#020617;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box {
+    background:#1e293b;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+
+input {
+    padding:10px;
+    margin-top:10px;
+    width:200px;
+}
+
+button {
+    margin-top:10px;
+    padding:10px;
+}
+
+.error {
+    color:red;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Введите код доступа</h2>
+
+<input type="text" id="code" placeholder="Код">
+
+<br>
+
+<button onclick="checkCode()">Войти</button>
+
+<p class="error" id="error"></p>
+</div>
+
+<script>
+
+function checkCode() {
+    let code = document.getElementById("code").value;
+
+    if(code === "1347") {
+        window.location.href = "https://drive.google.com/YOUR_LINK";
+    } else {
+        document.getElementById("error").innerText = "Неверный код";
+    }
+}
+
+</script>
+
+</body>
+</html>
