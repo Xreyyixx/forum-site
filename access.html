@@ -2,67 +2,115 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Доступ</title>
+<title>Форум — внутренний архив</title>
 
 <style>
+
 body {
+    margin:0;
     font-family: Arial;
-    background:#020617;
-    color:white;
+    background: linear-gradient(180deg, #0f172a, #020617);
+    color:#e5e7eb;
+}
+
+.container {
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
 }
 
 .box {
-    background:#1e293b;
-    padding:30px;
-    border-radius:10px;
+    background:rgba(30,41,59,0.85);
+    padding:40px;
+    border-radius:15px;
     text-align:center;
+    width:340px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+}
+
+h2 {
+    margin-bottom:10px;
 }
 
 input {
-    padding:10px;
-    margin-top:10px;
-    width:200px;
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    background:#0f172a;
+    color:white;
 }
 
 button {
-    margin-top:10px;
-    padding:10px;
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#3b82f6;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#2563eb;
 }
 
 .error {
-    color:red;
+    margin-top:10px;
+    color:#f87171;
+    font-size:14px;
+}
+
+.small {
+    font-size:12px;
+    color:#64748b;
     margin-top:10px;
 }
+
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
 <div class="box">
-<h2>Введите код доступа</h2>
 
-<input type="text" id="code" placeholder="Код">
+<h2>Форум — внутренний архив</h2>
 
-<br>
+<p class="small">
+Введите код доступа к архивным проектным материалам
+</p>
 
-<button onclick="checkCode()">Войти</button>
+<input type="text" id="code" placeholder="код доступа">
+
+<button onclick="check()">Войти</button>
 
 <p class="error" id="error"></p>
+
+<p class="small">
+уровень доступа: ограниченный
+</p>
+
+</div>
+
 </div>
 
 <script>
 
-function checkCode() {
+function check() {
     let code = document.getElementById("code").value;
 
     if(code === "1347") {
         window.location.href = "https://drive.google.com/YOUR_LINK";
     } else {
-        document.getElementById("error").innerText = "Неверный код";
+        document.getElementById("error").innerText =
+        "код доступа неверен";
     }
 }
 
